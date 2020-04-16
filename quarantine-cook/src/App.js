@@ -1,15 +1,25 @@
-import React from 'react';
+import React, {useContext, useState} from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Header from './components/Header'
+import RecipeForm from './components/RecipeForm'
+import {UserContext} from './contexts/UserContext'
 
 function App() {
+
+  const [ user, setUser] = useState({
+    recipes: null,
+    ingredients: null
+  })
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <Header />
-      </header>
+      <UserContext.Provider value = {[user, setUser]}>
+        <header className="App-header">
+          <Header />
+          <RecipeForm />
+        </header>
+      </UserContext.Provider>
     </div>
   );
 }
