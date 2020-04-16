@@ -1,4 +1,34 @@
 .no-groceries, .ingredients.stock.container{
     margin: 1rem;
-    
+
+}
+
+.ingredients.stock.container{
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    h1{
+        width: 100%;
+        padding-bottom: 1rem;
+        font-family: "Raleway", "Lato", "Manrope", 'Times New Roman', Times, serif;
+
+    }
+
+    .scroll-container{
+        height: 12rem;
+        width: 100%;
+        overflow-y: scroll;
+    }
+
+    .ingredient{
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        
+        p{
+            padding-right: 1rem;
+        }
+    }
+
 }

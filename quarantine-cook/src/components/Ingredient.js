@@ -17,10 +17,14 @@ const Ingredient = ({item}) => {
         })
     }
 
+    const iconStyle = {color: "s"}
     return (
-        <div>
-            <p key = {Math.floor(Math.random() * 100000)}>{item}</p>
-            <Icon name = "trash alternate" onClick = {() => removeItem()}/>
+        <div className = 'ingredient'>
+            <p key = {Math.floor(Math.random() * 100000)}>- {item}</p>
+            <Icon
+            style = {iconStyle} 
+            name = "trash alternate" 
+            onClick = {() => removeItem()}/>
         </div>
     )
 }

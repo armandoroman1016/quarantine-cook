@@ -7,10 +7,12 @@ const UserIngredients = ({items}) =>{
         items && items.length ? 
         ( <div className = 'ingredients stock container'>
             <h1>Your groceries</h1>
-            {items && items.map(ing => (
-                <Ingredient item = {ing} />                
-            )
-            )}                    
+            <div className = 'scroll-container' >
+                {items && items.map(ing => (
+                    <Ingredient item = {ing} />                
+                )
+                )}                    
+            </div>
         </div>
         )
         : <p className = 'no-groceries'>Your grocery list is empty. Use the form below to add items.</p>
