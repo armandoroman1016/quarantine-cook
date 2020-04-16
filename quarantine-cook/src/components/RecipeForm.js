@@ -1,5 +1,6 @@
-import React, { useState, useEffect, useContext } from 'react'
+import React, { useState, useContext } from 'react'
 import {UserContext} from "../contexts/UserContext"
+import UserIngredients from './UserIngredients'
 
 const RecipeForm = () => {
 
@@ -25,7 +26,7 @@ const RecipeForm = () => {
         
         e.preventDefault()
 
-        const filtered = []
+        let filtered = []
 
         for(let i = 0; i < inputItems.length; i++){
             
@@ -37,16 +38,20 @@ const RecipeForm = () => {
 
         }
         
-        setUser((user) => {
-            user.ingredients = filtered
-        })
+        if (filtered.length != 0){
+            setUser(user => user, user.ingredients = [...user.ingredients, ...filtered])
+        }
+
+        setValue("")
+        setInputItems([])
+
     }
 
     return(
         <div>
             <form onSubmit = {(e) => handleSubmit(e)}>
-                <label>YOUR GROCERIES</label>
-                <input value = {value} onChange = {(e) => handleChange(e)} placeholder = 'Enter items here one by one or comma separated'/>
+                <label>ENTER GROCERIES</label>
+                <input value = {value} onChange = {(e) => handleChange(e)} placeholder = 'Enter items here one at a time or comma separated'/>
                 {inputItems && inputItems.map(item => (
                     <p 
                     key = {Math.floor(Math.random() * 100000)}
@@ -54,8 +59,9 @@ const RecipeForm = () => {
                     >{item}</p>
                 )
                 )}
-                <button type = 'submit'>ADD TO INVENTORY</button>
+                <button type = 'submit'>ADD TO INGREDIENTS</button>
             </form>
+            <UserIngredients items = {user.ingredients}/>
         </div>
     )
 }
