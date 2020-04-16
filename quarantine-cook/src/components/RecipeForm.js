@@ -39,7 +39,7 @@ const RecipeForm = () => {
         }
         
         if (filtered.length != 0){
-            setUser(user => user, user.ingredients = [...user.ingredients, ...filtered])
+            setUser( {...user, ingredients: [...user.ingredients, ...filtered]})
         }
 
         setValue("")
@@ -48,20 +48,34 @@ const RecipeForm = () => {
     }
 
     return(
-        <div>
+        <div className = 'form user_ingredients container'>
             <form onSubmit = {(e) => handleSubmit(e)}>
                 <label>ENTER GROCERIES</label>
-                <input value = {value} onChange = {(e) => handleChange(e)} placeholder = 'Enter items here one at a time or comma separated'/>
-                {inputItems && inputItems.map(item => (
-                    <p 
-                    key = {Math.floor(Math.random() * 100000)}
-                    style = {item.match(itemFormat) == null ? { color: "red" } : null}
-                    >{item}</p>
-                )
-                )}
+                <div className="ui icon input">
+                    <input value = {value} onChange = {(e) => handleChange(e)} placeholder = 'Enter items here one at a time or comma separated'/>
+                    <i
+                    aria-hidden = "true"
+                    className = "search icon" 
+                    ></i>                
+                </div>
+                <div className = 'input_items_container'>
+                {
+                    inputItems.length > 0 ? (
+                        <>
+                        <h4>Ingredients to be added to your inventory</h4>
+                        {inputItems && inputItems.map(item => (
+                            <p 
+                            key = {Math.floor(Math.random() * 100000)}
+                            style = {item.match(itemFormat) == null ? { color: "#c80e13", fontWeight: "bolder" } : null}
+                            >{item}</p>
+                        )
+                        )}
+                        </>
+                    ) : null
+                }
+                </div>
                 <button type = 'submit'>ADD TO INGREDIENTS</button>
             </form>
-            <UserIngredients items = {user.ingredients}/>
         </div>
     )
 }

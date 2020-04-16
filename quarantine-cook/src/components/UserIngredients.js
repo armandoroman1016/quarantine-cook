@@ -5,7 +5,7 @@ const UserIngredients = ({items}) =>{
     
     return(
         items && items.length ? 
-        ( <div>
+        ( <div className = 'ingredients stock container'>
             <h1>Your groceries</h1>
             {items && items.map(ing => (
                 <Ingredient item = {ing} />                
@@ -13,7 +13,7 @@ const UserIngredients = ({items}) =>{
             )}                    
         </div>
         )
-        : null
+        : <p className = 'no-groceries'>Your grocery list is empty. Use the form below to add items.</p>
     )
 }
 

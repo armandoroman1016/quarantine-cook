@@ -1,11 +1,13 @@
-import React, {useContext, useState} from 'react';
+import React, { useState } from 'react';
 
 import './App.css';
+import './styles/index.scss'
+import 'semantic-ui-css/semantic.min.css'
+
 import Nav from './components/Nav'
 import RecipeForm from './components/RecipeForm'
 import UserIngredients from './components/UserIngredients'
 import {UserContext} from './contexts/UserContext'
-import 'semantic-ui-css/semantic.min.css'
 
 function App() {
 
@@ -18,8 +20,8 @@ function App() {
     <div className="App">
       <UserContext.Provider value = {[user, setUser]}>
           <Nav />
+          <UserIngredients items = {user.ingredients}/>
           <RecipeForm />
-          <UserIngredients />
       </UserContext.Provider>
     </div>
   );

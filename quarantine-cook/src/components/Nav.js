@@ -3,10 +3,10 @@ import React from 'react'
 const Nav = () => {
 
     return(
-        <div className = 'nav'>
-            <h1>Quarantine Cook</h1>       
-        </div>
+        <nav className = 'nav'>
+            <h3>Quarantine Cook</h3>       
+        </nav>
     )
 }
 
-export default Nav
+export default Nav  
