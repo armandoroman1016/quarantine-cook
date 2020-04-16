@@ -1,7 +1,7 @@
 import React, {useContext, useState} from 'react';
-import logo from './logo.svg';
+
 import './App.css';
-import Header from './components/Header'
+import Nav from './components/Nav'
 import RecipeForm from './components/RecipeForm'
 import UserIngredients from './components/UserIngredients'
 import {UserContext} from './contexts/UserContext'
@@ -17,11 +17,9 @@ function App() {
   return (
     <div className="App">
       <UserContext.Provider value = {[user, setUser]}>
-        <header className="App-header">
-          <Header />
+          <Nav />
           <RecipeForm />
           <UserIngredients />
-        </header>
       </UserContext.Provider>
     </div>
   );
