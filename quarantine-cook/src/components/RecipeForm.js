@@ -39,7 +39,17 @@ const RecipeForm = () => {
         }
         
         if (filtered.length != 0){
+
+            const storage = JSON.parse(localStorage.getItem("ingredients")) 
+
+            if (storage){
+                localStorage.setItem("ingredients", JSON.stringify([...storage, ...filtered]))
+            }else{
+                localStorage.setItem("ingredients", JSON.stringify([...filtered]))
+            }
+            
             setUser( {...user, ingredients: [...user.ingredients, ...filtered]})
+            
         }
 
         setValue("")
@@ -50,7 +60,7 @@ const RecipeForm = () => {
     return(
         <div className = 'form user_ingredients container'>
             <form onSubmit = {(e) => handleSubmit(e)}>
-                <label>ENTER GROCERIES</label>
+                <label>ADD GROCERIES</label>
                 <div className="ui icon input">
                     <input value = {value} onChange = {(e) => handleChange(e)} placeholder = 'Enter items here one at a time or comma separated'/>
                     <i

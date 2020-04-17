@@ -7,20 +7,23 @@ const Ingredient = ({item}) => {
     const [ user, setUser ] = useContext(UserContext)
 
     const removeItem = () => {
-        setUser({ 
-            ...user, 
-            ingredients: user.ingredients.filter( ing => {
-                    if (ing !== item){
-                        return ing
-                    }
-                })
+
+        const filtered = user.ingredients.filter( ing => {
+            if (ing !== item){
+                return ing
+            }
         })
+
+        setUser({ ...user, ingredients: filtered})
+
+        localStorage.setItem("ingredients", JSON.stringify(filtered))
+
     }
 
     const iconStyle = {color: "s"}
     return (
         <div className = 'ingredient'>
-            <p key = {Math.floor(Math.random() * 100000)}>- {item}</p>
+            <p >- {item}</p>
             <Icon
             style = {iconStyle} 
             name = "trash alternate" 

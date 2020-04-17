@@ -21,6 +21,7 @@
                 font-family: "Raleway", "Lato", "Manrope", 'Times New Roman', Times, serif;
                 margin-bottom: 1rem;
             }
+
             p{
                 height: fit-content;        
                 font-size: 1.2rem;       
@@ -37,6 +38,8 @@
             font-family: "Raleway", "Lato", "Manrope", 'Times New Roman', Times, serif;
             cursor: pointer;
             transition: background .25s ease-in;
+        box-shadow: 0 0 10px lighten(#1a1a1a, 70%);
+
             &:hover{
 
                 background: lighten($purple, 10%);
