@@ -52,29 +52,81 @@ const Recipes = () => {
 
     const [ filtered, setFiltered ] = useState(false)
 
-    const [displayList, setDisplayList] = useState(recipes)
+    const [ favoriteList, setFavoriteList ] = useState([])
 
+    const [ searchVal, setSearchVal ] = useState("")
+    
+    const [ displayList, setDisplayList ] = useState(recipes)
+
+    const [ searching, setSearching ] = useState(false) 
+    
+    // will update list of recipes when the filtered state is toggled 
     useEffect(() => {
         
         const favorites = new Set(JSON.parse(user.favoriteRecipes))
 
         if (filtered){
-
-            setDisplayList(displayList.filter(recipe => favorites.has(recipe.id)))
+            const filteredList = displayList.filter(recipe => favorites.has(recipe.id))
+            setFavoriteList(filteredList)
+            setDisplayList(filteredList)
 
         }else{
-
             setDisplayList(recipes)
-
         }
 
 
-        
     }, [filtered])
+
+    const handleSearch = (e) => {
+
+        let val = e.target.value
+
+        setSearchVal(val)
+        
+        if (val == ""){
+
+            setSearching(false)
+
+            if(!filtered){
+                setDisplayList(recipes)
+
+            }else{
+                setDisplayList(favoriteList)
+            }
+
+
+        }else{
+            setSearching(true)
+
+            if(!filtered){
+                setDisplayList( recipes.filter(recipe => recipe.title.toLowerCase().includes(val.toLowerCase())))
+
+            }else{
+                setDisplayList( favoriteList.filter(recipe => recipe.title.toLowerCase().includes(val.toLowerCase())))
+
+            }
+        }
+    }
 
     return(
         <div className = 'recipes'>
             <h3>Recipes For You</h3>
+            <div className = 'search'>
+                <label>SEARCH RECIPES</label>
+                <div className="ui icon input">
+                    <input 
+                    type = 'text' 
+                    name= 'searchRecipe' 
+                    value = {searchVal} 
+                    placeholder = "Enter recipe name here"
+                    onChange = {(e) => handleSearch(e)}
+                    />
+                    <i
+                    aria-hidden = "true"
+                    className = "search icon" 
+                    ></i>                
+                </div>
+            </div>
             <div className = 'filter option container' >
                 <p className = 'message'>Favorites</p>
                 <div className = {filtered ? 'switch-container filtered': 'switch-container'}>
@@ -84,6 +136,10 @@ const Recipes = () => {
                     />
                 </div>
             </div>
+            {searching ?
+                <p>Results for "{searchVal}"</p>
+                : null
+            }
             {displayList && displayList.map(recipe => {
                 return <Recipe key = {recipe.id} recipe = {recipe} />
             })}
