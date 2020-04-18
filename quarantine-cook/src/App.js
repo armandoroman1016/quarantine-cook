@@ -19,7 +19,7 @@ function App() {
   const [ user, setUser] = useState({
     allRecipes: localStorage.getItem('allRecipesQuarantine') ? localStorage.getItem('allRecipesQuarantine') : null,
     ingredients: localStorage.getItem('ingredients') ? JSON.parse(localStorage.getItem('ingredients')) : [],
-    favoriteRecipes: localStorage.getItem('favoriteRecipesQuarantine') ? localStorage.getItem('favoriteRecipesQuarantine') : null
+    favoriteRecipes: localStorage.getItem('favoriteRecipes') ? localStorage.getItem('favoriteRecipes') : JSON.stringify([])
   })
 
   return (

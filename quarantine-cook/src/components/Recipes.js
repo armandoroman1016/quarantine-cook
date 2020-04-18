@@ -49,6 +49,7 @@ const recipes = [
 const Recipes = () => {
 
     const [user, setUser] = useContext(UserContext)
+    
 
     return(
         <div className = 'recipes'>

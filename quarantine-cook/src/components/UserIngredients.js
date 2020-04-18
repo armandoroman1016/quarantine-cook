@@ -1,9 +1,12 @@
 import React, {useState} from 'react'
 import Ingredient from './Ingredient'
 import axios from 'axios'
+import { useHistory } from 'react-router-dom'
 
 const UserIngredients = ({items}) =>{
     
+    const history = useHistory()
+
     const [ loading, setLoading ] = useState(false)
 
     const fetchRecipes = async () => {
@@ -12,6 +15,9 @@ const UserIngredients = ({items}) =>{
         console.log("clicked")
 
         setLoading(false)
+
+        history.push('/recipes')
+
     }
 
     return(  
