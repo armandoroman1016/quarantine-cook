@@ -1,4 +1,4 @@
-import React, {useState, useContext} from 'react'
+import React, {useState, useContext, useEffect} from 'react'
 import { useHistory, useParams } from 'react-router'
 import {UserContext} from '../contexts/UserContext'
 import Recipe from './Recipe'
@@ -49,12 +49,42 @@ const recipes = [
 const Recipes = () => {
 
     const [user, setUser] = useContext(UserContext)
-    
+
+    const [ filtered, setFiltered ] = useState(false)
+
+    const [displayList, setDisplayList] = useState(recipes)
+
+    useEffect(() => {
+        
+        const favorites = new Set(JSON.parse(user.favoriteRecipes))
+
+        if (filtered){
+
+            setDisplayList(displayList.filter(recipe => favorites.has(recipe.id)))
+
+        }else{
+
+            setDisplayList(recipes)
+
+        }
+
+
+        
+    }, [filtered])
 
     return(
         <div className = 'recipes'>
             <h3>Recipes For You</h3>
-            {recipes && recipes.map(recipe => {
+            <div className = 'filter option container' >
+                <p className = 'message'>Favorites</p>
+                <div className = {filtered ? 'switch-container filtered': 'switch-container'}>
+                    <div 
+                    className = {filtered ? 'toggle filtered': 'toggle'} 
+                    onClick = {() => setFiltered(!filtered)}
+                    />
+                </div>
+            </div>
+            {displayList && displayList.map(recipe => {
                 return <Recipe key = {recipe.id} recipe = {recipe} />
             })}
         </div>
