@@ -62,7 +62,7 @@ const RecipeForm = () => {
             <form onSubmit = {(e) => handleSubmit(e)}>
                 <label>ADD GROCERIES</label>
                 <div className="ui icon input">
-                    <input value = {value} onChange = {(e) => handleChange(e)} placeholder = 'Enter items here one at a time or comma separated'/>
+                    <input value = {value} onChange = {(e) => handleChange(e)} placeholder = 'Enter items individually or comma separated'/>
                     <i
                     aria-hidden = "true"
                     className = "search icon" 

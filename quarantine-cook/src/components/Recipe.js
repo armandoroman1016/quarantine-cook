@@ -88,11 +88,11 @@ const Recipe = (props) => {
             <div className = 'actions'>
                 <button onClick = {() => openRecipe(recipe.id)}>View</button>
                 <span>
-                    <Icon
-                    name = 'fire'
-                    color = {isFavored ? "red" : "grey"}
+                    <i
+                    className = 'icon fire'
+                    style = {{color: isFavored ? "#ff6961" : "#6a8caf"}}
                     onClick = {() => updateFavorites(recipe.id)}
-                    />
+                    ></i>
                     {isFavored ? `${recipe.likes + 1}`: recipe.likes}
                 </span>
             </div>

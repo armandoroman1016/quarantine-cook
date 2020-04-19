@@ -112,13 +112,13 @@ const Recipes = () => {
         <div className = 'recipes'>
             <h3>Recipes For You</h3>
             <div className = 'search'>
-                <label>SEARCH RECIPES</label>
+                
                 <div className="ui icon input">
                     <input 
                     type = 'text' 
                     name= 'searchRecipe' 
                     value = {searchVal} 
-                    placeholder = "Enter recipe name here"
+                    placeholder = "Search Recipes"
                     onChange = {(e) => handleSearch(e)}
                     />
                     <i
@@ -137,7 +137,7 @@ const Recipes = () => {
                 </div>
             </div>
             {searching ?
-                <p>Results for "{searchVal}"</p>
+                <p className = 'search-results'>Results for "{searchVal}"</p>
                 : null
             }
             {displayList && displayList.map(recipe => {
