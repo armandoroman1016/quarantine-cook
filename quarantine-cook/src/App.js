@@ -1,15 +1,42 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
+
 import './App.css';
-import Header from './components/Header'
+import './styles/index.scss'
+import 'semantic-ui-css/semantic.min.css'
+
+import Nav from './components/Nav'
+import RecipeForm from './components/RecipeForm'
+import UserIngredients from './components/UserIngredients'
+import Recipes from './components/Recipes'
+import Recipe from './components/Recipe'
+
+import {UserContext} from './contexts/UserContext'
+import { Route, Switch } from 'react-router'
 
 function App() {
+
+
+  const [ user, setUser] = useState({
+    allRecipes: localStorage.getItem('allRecipesQuarantine') ? localStorage.getItem('allRecipesQuarantine') : null,
+    ingredients: localStorage.getItem('ingredients') ? JSON.parse(localStorage.getItem('ingredients')) : [],
+    favoriteRecipes: localStorage.getItem('favoriteRecipes') ? localStorage.getItem('favoriteRecipes') : JSON.stringify([])
+  })
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <Header />
-      </header>
+      <UserContext.Provider value = {[user, setUser]}>
+          <Nav />
+          <Switch>
+            <Route path = '/kitchen' render = {(props) => (
+                <>
+                  <UserIngredients {...props} items = {user.ingredients}/>
+                  <RecipeForm {...props}/>
+                </>
+              )}/>
+            <Route path = '/recipes' component = {Recipes}/>
+            <Route path = '/recipes/:id' component = {Recipe}/>
+          </Switch>
+      </UserContext.Provider>
     </div>
   );
 }

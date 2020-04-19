@@ -1,0 +1,73 @@
+.nav{
+    height: 6rem;
+    width: 100vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 0 12px lighten(#1a1a1a, 80%);
+    padding: 0 1rem;
+    position: relative;
+
+    h3{
+
+        font-family: "Manrope", 'Times New Roman', Times, serif;
+        font-size: 1.4rem;
+        font-weight: bold;
+        color: $purple;
+    }
+
+    .icon{
+        width: 1.6rem;
+        height: 1.6rem;
+    }
+
+
+
+    .links{
+        background: $red;
+        height: 5rem;
+        width: 100%;
+        opacity: 1;
+        position: absolute;
+        bottom: -5rem;
+        left: 0;
+        right: 0;
+        transition-property: height, width, opacity;
+        transition: all .25s ease-out;
+        filter: drop-shadow(2px 2px 5px lighten(#1a1a1a, 70%));
+        ul{
+            height: 100%;
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: center;
+            padding: 0 1rem;
+            li{
+                height: fit-content;
+                a{
+                    text-decoration: none;
+                    color: #ffffff;
+                    font-weight:bold;
+                    font-size:1.2rem
+                }
+                
+            }
+        }
+    }
+
+    .links.hide{
+        bottom: 0;
+        height: 0;
+        opacity: 0;
+        transition-property: height, width, opacity;
+        transition: all .25s ease-in;
+        ul{
+            display: none;
+        }
+    }
+
+
+
+
+}

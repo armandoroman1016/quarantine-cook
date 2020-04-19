@@ -1,0 +1,52 @@
+.form.container{
+    width: 100%;
+    height: 100%;
+    form{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        margin: 2rem 1rem;
+        label{
+            font-weight: bold;
+            margin: 1rem 0;
+        }
+        .input_items_container{
+            margin-top: 1.6rem;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            h4{
+                width: 100%;
+                font-family: "Raleway", "Lato", "Manrope", 'Times New Roman', Times, serif;
+                margin-bottom: 1rem;
+            }
+
+            p{
+                height: fit-content;        
+                font-size: 1.2rem;       
+                padding: .5rem ;
+            }
+        }
+        button{
+            margin-top: 2rem;
+            height: 3.4rem;
+            border: none;
+            color: #ffffff;
+            border-radius: 8px;
+            background: $purple;
+            font-family: "Raleway", "Lato", "Manrope", 'Times New Roman', Times, serif;
+            cursor: pointer;
+            transition: background .25s ease-in;
+        box-shadow: 0 0 10px lighten(#1a1a1a, 70%);
+
+            &:hover{
+
+                background: lighten($purple, 10%);
+                transition: background .25s ease-in;
+
+            }
+        }
+
+    }
+}
