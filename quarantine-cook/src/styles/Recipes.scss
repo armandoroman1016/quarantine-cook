@@ -22,6 +22,12 @@
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+        .ui.icon.input{
+            .search-recipe-input{
+                font-size: 16px;
+            }
+
+        }
         // margin-bottom: 2.5rem;
 
     }
@@ -90,52 +96,61 @@
         margin: 1rem 0 0 0;
     }
 
-    .recipe.container{
-        padding-top: 1rem;
-        width: 45%;
-        border-radius: 8px;
-        margin: 1rem 0;
-        img{
-            width: 100%;
-            border-radius: 4px;
-        }
-        .recipe-name{
-            font-family: "Raleway", "Lato", "Manrope", 'Times New Roman', Times, serif;
-            font-size: 1rem;
-            font-weight: bold;
-            padding-top: .4rem;
-        }
-        .ingredients-missing{
-            font-size: .8rem;
-            
-        }
-        .actions{
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            justify-content: space-between;
-            width: 100%;
+    .displayed-recipes{
+
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        .recipe.container{
             padding-top: 1rem;
-            button{
-                width: 5.5rem;
-                height: 2.4rem;
-                border: none;
-                color: #ffffff;
-                font-weight: bold;
-                border-radius: 8px;
-                background: $purple;
+            width: 45%;
+            border-radius: 8px;
+            margin: 1rem 0;
+            img{
+                width: 100%;
+                border-radius: 4px;
+            }
+            .recipe-name{
                 font-family: "Raleway", "Lato", "Manrope", 'Times New Roman', Times, serif;
-                cursor: pointer;
-                transition: background .25s ease-in;
-                box-shadow: 0 0 10px lighten(#1a1a1a, 85%);
-    
-                &:hover{
-    
-                    background: lighten($purple, 10%);
+                font-size: 1rem;
+                font-weight: bold;
+                padding-top: .4rem;
+            }
+            .ingredients-missing{
+                font-size: .8rem;
+                
+            }
+            .actions{
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
+                width: 100%;
+                padding-top: 1rem;
+                button{
+                    width: 5.5rem;
+                    height: 2.4rem;
+                    border: none;
+                    color: #ffffff;
+                    font-weight: bold;
+                    border-radius: 8px;
+                    background: $purple;
+                    font-family: "Raleway", "Lato", "Manrope", 'Times New Roman', Times, serif;
+                    cursor: pointer;
                     transition: background .25s ease-in;
-    
+                    box-shadow: 0 0 10px lighten(#1a1a1a, 85%);
+        
+                    &:hover{
+        
+                        background: lighten($purple, 10%);
+                        transition: background .25s ease-in;
+        
+                    }
                 }
             }
         }
     }
+
 }

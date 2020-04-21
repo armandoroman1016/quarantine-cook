@@ -120,6 +120,7 @@ const Recipes = () => {
                     value = {searchVal} 
                     placeholder = "Search Recipes"
                     onChange = {(e) => handleSearch(e)}
+                    className = 'search-recipe-input'
                     />
                     <i
                     aria-hidden = "true"
@@ -129,10 +130,12 @@ const Recipes = () => {
             </div>
             <div className = 'filter option container' >
                 <p className = 'message'>Favorites</p>
-                <div className = {filtered ? 'switch-container filtered': 'switch-container'}>
+                <div 
+                className = {filtered ? 'switch-container filtered': 'switch-container'}
+                onClick = {() => setFiltered(!filtered)}
+                >
                     <div 
                     className = {filtered ? 'toggle filtered': 'toggle'} 
-                    onClick = {() => setFiltered(!filtered)}
                     />
                 </div>
             </div>
@@ -140,9 +143,11 @@ const Recipes = () => {
                 <p className = 'search-results'>Results for "{searchVal}"</p>
                 : null
             }
-            {displayList && displayList.map(recipe => {
-                return <Recipe key = {recipe.id} recipe = {recipe} />
-            })}
+            <div className = 'displayed-recipes'>
+                {displayList && displayList.map(recipe => {
+                    return <Recipe key = {recipe.id} recipe = {recipe} />
+                })}     
+            </div>
         </div>
     )    
 }
