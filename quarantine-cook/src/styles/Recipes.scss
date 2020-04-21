@@ -13,6 +13,8 @@
         height: 2rem;
         margin: 0;
         font-family: "Raleway", "Lato", "Manrope", 'Times New Roman', Times, serif;
+        font-size: 1.8rem;
+        margin-bottom: .6rem;
     }
 
     .search{
@@ -41,15 +43,15 @@
 
         .message{
             height: fit-content;
-            margin: 1.6rem 0 0 0;
-            font-size: .8rem;
+            margin: 2rem 1rem 0 0;
+            font-size: 1.2rem;
             font-weight: bold;
-            margin-right: 1rem;
+            
         }
     
         .switch-container{
            
-            margin: 1.4rem 0 0 0;
+            margin: 1.6rem 0 0 0;
             height: 22px;
             width: 44px;    
             background: $red;
@@ -104,6 +106,7 @@
         flex-direction: row;
         flex-wrap: wrap;
         justify-content: space-between;
+        padding-top: 1.6rem;
         .recipe.container{
             padding-top: 1rem;
             width: 45%;
@@ -115,13 +118,14 @@
             }
             .recipe-name{
                 font-family: "Raleway", "Lato", "Manrope", 'Times New Roman', Times, serif;
-                font-size: 1rem;
+                
                 font-weight: bold;
                 padding-top: .4rem;
             }
             .ingredients-missing{
-                font-size: .8rem;
-                
+                font-size: 1.2rem;
+                font-style: italic;
+                padding-top: 1.2rem;
             }
             .actions{
                 display: flex;
@@ -129,10 +133,10 @@
                 align-items: center;
                 justify-content: space-between;
                 width: 100%;
-                padding-top: 1rem;
+                padding-top: 2rem;
                 button{
-                    width: 5.5rem;
-                    height: 2.4rem;
+                    width: 80px;
+                    height: 30px;
                     border: none;
                     color: #ffffff;
                     font-weight: bold;
