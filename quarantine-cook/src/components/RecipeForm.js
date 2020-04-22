@@ -65,7 +65,7 @@ const RecipeForm = () => {
                     <input value = {value} onChange = {(e) => handleChange(e)} placeholder = 'Enter items individually or comma separated'/>
                     <i
                     aria-hidden = "true"
-                    className = "search icon" 
+                    className = "icon food" 
                     ></i>                
                 </div>
                 <div className = 'input_items_container'>

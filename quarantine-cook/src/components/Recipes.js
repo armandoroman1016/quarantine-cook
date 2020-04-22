@@ -79,7 +79,7 @@ const Recipes = () => {
 
     const handleSearch = (e) => {
 
-        let val = e.target.value
+        let val = e.target.value.toLowerCase()
 
         setSearchVal(val)
         
@@ -99,10 +99,10 @@ const Recipes = () => {
             setSearching(true)
 
             if(!filtered){
-                setDisplayList( recipes.filter(recipe => recipe.title.toLowerCase().includes(val.toLowerCase())))
+                setDisplayList( recipes.filter(recipe => recipe.title.toLowerCase().includes(val)))
 
             }else{
-                setDisplayList( favoriteList.filter(recipe => recipe.title.toLowerCase().includes(val.toLowerCase())))
+                setDisplayList( favoriteList.filter(recipe => recipe.title.toLowerCase().includes(val)))
 
             }
         }

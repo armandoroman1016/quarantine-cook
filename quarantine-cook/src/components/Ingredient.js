@@ -20,10 +20,10 @@ const Ingredient = ({item}) => {
 
     }
 
-    const iconStyle = {color: "s"}
+    const iconStyle = {color: "#ff6961"}
     return (
         <div className = 'ingredient'>
-            <p >- {item}</p>
+            <p >{item}</p>
             <Icon
             style = {iconStyle} 
             name = "trash alternate" 
