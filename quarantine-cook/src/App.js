@@ -14,8 +14,10 @@ import {UserContext} from './contexts/UserContext'
 import { Route, Switch } from 'react-router'
 
 function App() {
+  
+  let test = process.env.REACT_APP_TEST
 
-
+  console.log('here', test)
   const [ user, setUser] = useState({
     allRecipes: localStorage.getItem('allRecipesQuarantine') ? localStorage.getItem('allRecipesQuarantine') : null,
     ingredients: localStorage.getItem('ingredients') ? JSON.parse(localStorage.getItem('ingredients')) : [],

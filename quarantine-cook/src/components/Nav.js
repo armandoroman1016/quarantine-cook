@@ -2,10 +2,13 @@ import React, {useState} from 'react'
 import {Link} from 'react-router-dom'
 import Menu from '../assets/menu.svg'
 import Close from '../assets/close.svg'
+import {Icon} from 'semantic-ui-react'
 
 const Nav = () => {
 
     const [show, setShow] = useState(false)
+
+    const iconColor = { color: "#fff"}
 
     return(
         <nav className = 'nav'>
@@ -19,16 +22,28 @@ const Nav = () => {
             <div className = {show ? 'links' :'links hide'}>
                 <ul>
                     <li>
+
                         <Link 
                         to = '/kitchen'
                         onClick = {() => setShow(false)}
-                        >My Kitchen</Link>
+                        >
+                        <Icon
+                        name = 'food'
+                        style = {iconColor}
+                        />
+                        My Kitchen</Link>
                     </li>
                     <li>
+
                         <Link 
                         to = '/recipes'
                         onClick = {() => setShow(false)}
-                        >Recipes</Link>
+                        >
+                        <Icon
+                        name = 'book'
+                        style = {iconColor}
+                        />
+                        Recipes</Link>
                     </li>
                 </ul>
             </div>
