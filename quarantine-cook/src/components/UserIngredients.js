@@ -38,7 +38,7 @@ const UserIngredients = ({items}) =>{
         if (updated === ""){
 
             setDisplayList(items)
-            setSearching(true)
+            setSearching(false)
             
         }else{
 
@@ -55,26 +55,26 @@ const UserIngredients = ({items}) =>{
     return(  
         <div className = 'ingredients stock container'>
             <h1>Your groceries</h1>
-            <button onClick = {() => fetchRecipes()}>GET RECIPES</button>
+            <button 
+            onClick = {() => fetchRecipes()}
+            >GET RECIPES</button>
             
-                <div className="ui icon input">
-                    <input 
-                    className = 'itemSearch' 
-                    name = 'itemSearch'
-                    onChange = {(e) => handleChange(e)}
-                    placeholder = 'Search My Groceries'
-                    value = {val}
-                    />
-                    <i
-                    aria-hidden = "true"
-                    className = "search icon" 
-                    ></i>                
-                </div>
-                {searching ?
-                    <p>Search results for "{val}"</p>
-                    : null 
-                }
+            <div className="ui icon input">
+                <input 
+                className = 'itemSearch' 
+                name = 'itemSearch'
+                onChange = {(e) => handleChange(e)}
+                placeholder = 'Search My Groceries'
+                value = {val}
+                />
+                <i
+                aria-hidden = "true"
+                className = "search icon" 
+                ></i>                
+            </div>
+
             <div className = 'scroll-container' >
+                {searching ? <p className = 'search-results-message'>Results for "<span>{val}</span>"</p> : null} 
                 {displayList.length ? displayList.map(ing => (
                     <Ingredient item = {ing} key = {Math.floor(Math.random() * 100000)}/>                
                 ))

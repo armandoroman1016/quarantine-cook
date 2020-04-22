@@ -13,6 +13,10 @@
         input{
             font-size: 16px;
         }
+        .ui.input>input{
+        
+            font-family: "Raleway", "Lato", "Manrope", 'Times New Roman', Times, serif;
+        }
         .input_items_container{
             margin-top: 1.6rem;
             display: flex;
@@ -33,7 +37,7 @@
         }
         button{
             margin-top: 2rem;
-            height: 3.4rem;
+            height: 40px;
             border: none;
             color: #ffffff;
             border-radius: 8px;
