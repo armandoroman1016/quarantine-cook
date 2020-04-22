@@ -6,8 +6,10 @@
     align-items: center;
     box-shadow: 0 0 12px lighten(#1a1a1a, 80%);
     padding: 0 20px;
-    position: relative;
-
+    position: fixed;
+    top: 0;
+    z-index: 100000;
+    background: #fff;
     h3{
 
         font-family: "Manrope", 'Times New Roman', Times, serif;
@@ -30,7 +32,8 @@
         width: 45%;
         position: absolute;
         bottom: -90vh;
-        z-index: 1000;
+        // z-index: 1000000 !important;
+
         right: 0;
         transform: translateX(0);
         transition-property: height, width, opacity;
