@@ -1,37 +1,38 @@
 .nav{
-    height: 6rem;
+    height: 10vh;
     width: 100vw;
     display: flex;
     justify-content: space-between;
     align-items: center;
     box-shadow: 0 0 12px lighten(#1a1a1a, 80%);
-    padding: 0 1rem;
+    padding: 0 20px;
     position: relative;
 
     h3{
 
         font-family: "Manrope", 'Times New Roman', Times, serif;
-        font-size: 1.4rem;
+        font-size: 1.8rem;
         font-weight: bold;
         color: $purple;
     }
 
     .icon{
-        width: 1.6rem;
-        height: 1.6rem;
+        width: 22px;
+        height: 22px;
+        filter: drop-shadow(1px 1px 1px lighten(#1a1a1a, 50%));
     }
 
 
 
     .links{
         background: $red;
-        height: 5rem;
-        width: 100%;
-        opacity: 1;
+        height: 90vh;
+        width: 45%;
         position: absolute;
-        bottom: -5rem;
-        left: 0;
+        bottom: -90vh;
+        z-index: 1000;
         right: 0;
+        transform: translateX(0);
         transition-property: height, width, opacity;
         transition: all .25s ease-out;
         filter: drop-shadow(2px 2px 5px lighten(#1a1a1a, 70%));
@@ -39,17 +40,18 @@
             height: 100%;
             width: 100%;
             display: flex;
-            flex-direction: row;
-            justify-content: space-around;
-            align-items: center;
-            padding: 0 1rem;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: flex-end;
+            padding: 2rem;
             li{
                 height: fit-content;
+                padding-bottom: 2rem;
                 a{
                     text-decoration: none;
                     color: #ffffff;
                     font-weight:bold;
-                    font-size:1.2rem
+                    font-size:14px;
                 }
                 
             }
@@ -57,14 +59,13 @@
     }
 
     .links.hide{
-        bottom: 0;
-        height: 0;
-        opacity: 0;
-        transition-property: height, width, opacity;
+
+        transform: translateX(100%);
+        transition-property:  transform opacity;
         transition: all .25s ease-in;
-        ul{
-            display: none;
-        }
+        // ul{
+        //     display: none;
+        // }
     }
 
 

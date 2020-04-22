@@ -34,7 +34,6 @@ function App() {
                 </>
               )}/>
             <Route path = '/recipes' component = {Recipes}/>
-            <Route path = '/recipes/:id' component = {Recipe}/>
           </Switch>
       </UserContext.Provider>
     </div>
