@@ -17,7 +17,7 @@ const Recipes = () => {
 
     const [ searching, setSearching ] = useState(false) 
 
-    console.log(user)
+    // console.log(user)
     
     useEffect(() => {
         

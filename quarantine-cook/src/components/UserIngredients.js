@@ -3,6 +3,7 @@ import Ingredient from './Ingredient'
 import { useHistory } from 'react-router-dom'
 import { recipesRequest } from '../utils/recipeRequest' 
 import {UserContext} from '../contexts/UserContext'
+import BeatLoader from "react-spinners/BeatLoader";
 
 const URL = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?number=5&ranking=2&ignorePantry=false&ingredients="
 
@@ -21,23 +22,32 @@ const UserIngredients = ({items}) =>{
     const [ user, setUser] = useContext(UserContext)
 
     const fetchRecipes = () => {
+        
         setLoading(true)
         
-        const formattedItems = items.join('%252C')
-        // console.log(`${URL}${formattedItems}`)        
-        recipesRequest()
-        .get(`${URL}${formattedItems}`)
-        .then(res => {
-            setUser({...user, recipes: res.data})
-            localStorage.setItem("allRecipes", JSON.stringify(res.data))
+        if(user.allRecipes.length){
+            setLoading(true)
+            
+            const formattedItems = items.join('%252C')
+            recipesRequest()
+            .get(`${URL}${formattedItems}`)
+            .then(res => {
+                setUser({...user, recipes: res.data})
+                localStorage.setItem("allRecipes", JSON.stringify(res.data))
+                setLoading(false)
+                history.push('/recipes')
+            })
+            .catch(err => {
+                setLoading(false)
+                console.log(err)
+            })
+    
+            setLoading(false)
+        }else{
+            setLoading(false)
             history.push('/recipes')
-        })
-        .catch(err => {
-            console.log(err)
-        })
 
-        setLoading(false)
-
+        }       
 
     }
 
@@ -71,7 +81,14 @@ const UserIngredients = ({items}) =>{
             <h1>Your groceries</h1>
             <button 
             onClick = {() => fetchRecipes()}
-            >GET RECIPES</button>
+            >{!loading 
+                ? "GET RECIPES" 
+                : <BeatLoader 
+                size={9}
+                color={"#fff"}
+                />
+            }
+            </button>
             
             <div className="ui icon input">
                 <input 
