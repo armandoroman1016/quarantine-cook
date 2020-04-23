@@ -3,49 +3,6 @@ import { useHistory, useParams } from 'react-router'
 import {UserContext} from '../contexts/UserContext'
 import Recipe from './Recipe'
 
-const recipes = [
-    {
-    "id":641803,
-    "title":"Easy & Delish! ~ Apple Crumble",
-    "image":"https://spoonacular.com/recipeImages/Easy---Delish--Apple-Crumble-641803.jpg",
-    "usedIngredientCount":3,
-    "missedIngredientCount":4,
-    "likes":1
-    },
-    {
-    "id":645152,
-    "title":"Grandma's Apple Crisp",
-    "image":"https://spoonacular.com/recipeImages/Grandmas-Apple-Crisp-645152.jpg",
-    "usedIngredientCount":3,
-    "missedIngredientCount":6,
-    "likes":1
-    },
-    {
-    "id":657563,
-    "title":"Quick Apple Ginger Pie",
-    "image":"https://spoonacular.com/recipeImages/Quick-Apple-Ginger-Pie-657563.jpg",
-    "usedIngredientCount":3,
-    "missedIngredientCount":6,
-    "likes":1
-    },
-    {
-    "id":639487,
-    "title":"Cinnamon Sugar Fried Apples",
-    "image":"https://spoonacular.com/recipeImages/Cinnamon-Sugar-Fried-Apples-639487.jpg",
-    "usedIngredientCount":3,
-    "missedIngredientCount":8,
-    "likes":46
-    },
-    {
-    "id":643426,
-    "title":"Fresh Apple Cake With Caramel Sauce",
-    "image":"https://spoonacular.com/recipeImages/Fresh-Apple-Cake-With-Caramel-Sauce-643426.jpg",
-    "usedIngredientCount":3,
-    "missedIngredientCount":12,
-    "likes":9
-    }
-    ]
-
 const Recipes = () => {
 
     const [user, setUser] = useContext(UserContext)
@@ -56,11 +13,12 @@ const Recipes = () => {
 
     const [ searchVal, setSearchVal ] = useState("")
     
-    const [ displayList, setDisplayList ] = useState(recipes)
+    const [ displayList, setDisplayList ] = useState(user.allRecipes)
 
     const [ searching, setSearching ] = useState(false) 
+
+    console.log(user)
     
-    // will update list of recipes when the filtered state is toggled 
     useEffect(() => {
         
         const favorites = new Set(JSON.parse(user.favoriteRecipes))
@@ -71,7 +29,7 @@ const Recipes = () => {
             setDisplayList(filteredList)
 
         }else{
-            setDisplayList(recipes)
+            setDisplayList(user.allRecipes)
         }
 
 
@@ -88,7 +46,7 @@ const Recipes = () => {
             setSearching(false)
 
             if(!filtered){
-                setDisplayList(recipes)
+                setDisplayList(user.allRecipes)
 
             }else{
                 setDisplayList(favoriteList)
@@ -99,7 +57,7 @@ const Recipes = () => {
             setSearching(true)
 
             if(!filtered){
-                setDisplayList( recipes.filter(recipe => recipe.title.toLowerCase().includes(val)))
+                setDisplayList( user.allRecipes.filter(recipe => recipe.title.toLowerCase().includes(val)))
 
             }else{
                 setDisplayList( favoriteList.filter(recipe => recipe.title.toLowerCase().includes(val)))

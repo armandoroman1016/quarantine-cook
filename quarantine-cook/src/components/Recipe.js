@@ -2,7 +2,7 @@ import React, {useState, useContext, useEffect} from 'react'
 import {useHistory, Link} from 'react-router-dom'
 import {Icon} from 'semantic-ui-react'
 import { UserContext } from '../contexts/UserContext'
-
+import { recipesRequest } from '../utils/recipeRequest'
 
 const data = {
     "vegetarian":false,
@@ -39,6 +39,8 @@ const Recipe = (props) => {
     
     const [user, setUser] = useContext(UserContext)
 
+    const [loading, setLoading] = useState(false)
+
     let favorites = JSON.parse(user.favoriteRecipes)
 
     favorites = new Set(favorites)
@@ -69,10 +71,20 @@ const Recipe = (props) => {
 
     const openRecipe = async (recipeID) => {
         
-        console.log(recipeID)
+        setLoading(true)
 
-        
-        window.open(data.sourceUrl, "_blank");
+        recipesRequest()
+        .get(`https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/${recipeID}/information`)
+        .then( res => {
+            console.log(res)
+            setLoading(false)
+
+            window.open(res.data.sourceUrl, "_blank");
+
+        })
+        .catch(err => {
+            console.log(err)
+        })
 
     }
 
