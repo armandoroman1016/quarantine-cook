@@ -1,6 +1,5 @@
 import React, { useState, useContext } from 'react'
 import {UserContext} from "../contexts/UserContext"
-import UserIngredients from './UserIngredients'
 
 const RecipeForm = () => {
 
@@ -28,6 +27,7 @@ const RecipeForm = () => {
 
         let filtered = []
 
+        // initial loop to remove any invalid field submissions
         for(let i = 0; i < inputItems.length; i++){
             
             const found = inputItems[i].match(itemFormat)
@@ -38,10 +38,11 @@ const RecipeForm = () => {
 
         }
         
-        if (filtered.length != 0){
+        if (filtered.length !== 0){
 
             const storage = JSON.parse(localStorage.getItem("ingredients")) 
-
+            
+            
             if (storage){
                 localStorage.setItem("ingredients", JSON.stringify([...storage, ...filtered]))
             }else{
