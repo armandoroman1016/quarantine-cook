@@ -1,39 +1,76 @@
-import React, {useState, useContext} from 'react'
+import React, {useState, useContext, useEffect} from 'react'
 import Ingredient from './Ingredient'
 import { useHistory } from 'react-router-dom'
 import { recipesRequest } from '../utils/recipeRequest' 
 import {UserContext} from '../contexts/UserContext'
 import BeatLoader from "react-spinners/BeatLoader";
 
-const URL = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?number=5&ranking=2&ignorePantry=false&ingredients="
+const URL = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?number=10&ranking=2&ignorePantry=false&ingredients="
 
-const UserIngredients = ({items}) =>{
+const ingredientsHaveUpdated = (currItems) => {
+
+    let prevItems = new Set(JSON.parse(localStorage.getItem("prevIngredients")))
+
+    if (!prevItems.size){
+        return true
+
+    }
+
+    let changes = false
+
+    for(let i = 0; i < currItems.length; i++){
+        if(!prevItems.has(currItems[i])){
+            changes = true
+            break
+        }
+    }
+
+    return changes
+
+}
+
+const UserIngredients = () =>{
+    
+    const [ user, setUser] = useContext(UserContext)
+    
+    const [ items, setItems ] = useState(user.ingredients)
+    const [ displayList, setDisplayList ] = useState(items)
+    
+    const [ val, setVal ] = useState("")
+    
+    const [ loading, setLoading ] = useState(false)
+    const [ searching, setSearching] = useState(false)
     
     const history = useHistory()
+    
+    
 
-    const [ loading, setLoading ] = useState(false)
+    useEffect(() => {
 
-    const [ searching, setSearching] = useState(false)
+        if(searching){
 
-    const [ val, setVal ] = useState("")
+            setDisplayList(user.ingredients.filter(item => item.toLowerCase().includes(val.toLowerCase())))
 
-    const [ displayList, setDisplayList ] = useState(items)
+        }else{
+            setDisplayList(user.ingredients)
 
-    const [ user, setUser] = useContext(UserContext)
+        }
+
+    }, [user.ingredients])
 
     const fetchRecipes = () => {
         
         setLoading(true)
-        
-        if(user.allRecipes.length){
-            setLoading(true)
-            
+
+        if(ingredientsHaveUpdated(items)){
             const formattedItems = items.join('%252C')
+            // console.log("here")
             recipesRequest()
             .get(`${URL}${formattedItems}`)
             .then(res => {
-                setUser({...user, recipes: res.data})
+                setUser({...user, allRecipes: res.data})
                 localStorage.setItem("allRecipes", JSON.stringify(res.data))
+                localStorage.setItem("prevIngredients", JSON.stringify(items))
                 setLoading(false)
                 history.push('/recipes')
             })
@@ -43,11 +80,15 @@ const UserIngredients = ({items}) =>{
             })
     
             setLoading(false)
+
         }else{
+            
             setLoading(false)
             history.push('/recipes')
 
-        }       
+        }
+        
+        
 
     }
 
@@ -66,8 +107,8 @@ const UserIngredients = ({items}) =>{
             
         }else{
 
-            const filtered = items.filter(item => item.toLowerCase().includes(updated))
-            
+            const filtered = user.ingredients.filter(item => item.toLowerCase().includes(updated))
+            console.log(filtered)
             setDisplayList(filtered)
 
         }
@@ -79,15 +120,12 @@ const UserIngredients = ({items}) =>{
     return(  
         <div className = 'ingredients stock container'>
             <h1>Your groceries</h1>
-            <button 
-            onClick = {() => fetchRecipes()}
-            >{!loading 
+            <button onClick = {() => fetchRecipes()}>{!loading 
                 ? "GET RECIPES" 
                 : <BeatLoader 
-                size={9}
+                size={7}
                 color={"#fff"}
-                />
-            }
+                />}
             </button>
             
             <div className="ui icon input">

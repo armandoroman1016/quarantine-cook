@@ -1,11 +1,10 @@
 import React, {useState, useContext, useEffect} from 'react'
-import { useHistory, useParams } from 'react-router'
 import {UserContext} from '../contexts/UserContext'
 import Recipe from './Recipe'
 
 const Recipes = () => {
 
-    const [user, setUser] = useContext(UserContext)
+    const [user] = useContext(UserContext)
 
     const [ filtered, setFiltered ] = useState(false)
 
@@ -16,8 +15,6 @@ const Recipes = () => {
     const [ displayList, setDisplayList ] = useState(user.allRecipes)
 
     const [ searching, setSearching ] = useState(false) 
-
-    // console.log(user)
     
     useEffect(() => {
         
@@ -41,7 +38,7 @@ const Recipes = () => {
 
         setSearchVal(val)
         
-        if (val == ""){
+        if (val === ""){
 
             setSearching(false)
 

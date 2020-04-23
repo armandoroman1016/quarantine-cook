@@ -1,6 +1,4 @@
-import React, {useState, useContext, useEffect} from 'react'
-import {useHistory, Link} from 'react-router-dom'
-import {Icon} from 'semantic-ui-react'
+import React, {useState, useContext} from 'react'
 import { UserContext } from '../contexts/UserContext'
 import { recipesRequest } from '../utils/recipeRequest'
 import BeatLoader from "react-spinners/BeatLoader";

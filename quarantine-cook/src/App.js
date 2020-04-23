@@ -8,7 +8,6 @@ import Nav from './components/Nav'
 import RecipeForm from './components/RecipeForm'
 import UserIngredients from './components/UserIngredients'
 import Recipes from './components/Recipes'
-import Recipe from './components/Recipe'
 
 import {UserContext} from './contexts/UserContext'
 import { Route, Switch } from 'react-router'
@@ -29,7 +28,7 @@ function App() {
           <Switch>
             <Route path = '/kitchen' render = {(props) => (
                 <>
-                  <UserIngredients {...props} items = {user.ingredients}/>
+                  <UserIngredients {...props}/>
                   <RecipeForm {...props}/>
                 </>
               )}/>
