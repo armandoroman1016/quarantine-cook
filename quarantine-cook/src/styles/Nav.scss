@@ -32,8 +32,6 @@
         width: 45%;
         position: absolute;
         bottom: -90vh;
-        // z-index: 1000000 !important;
-
         right: 0;
         transform: translateX(0);
         transition-property: height, width, opacity;
@@ -46,15 +44,15 @@
             flex-direction: column;
             justify-content: flex-start;
             align-items: flex-end;
-            padding: 2rem;
+            padding: 2.4rem 2rem;
             li{
                 height: fit-content;
-                padding-bottom: 2rem;
+                padding-bottom: 2.4rem;
                 a{
                     text-decoration: none;
                     color: #ffffff;
                     font-weight:bold;
-                    font-size:14px;
+                    font-size:16px;
                 }
                 
             }

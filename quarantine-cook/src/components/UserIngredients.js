@@ -1,8 +1,10 @@
-import React, {useState} from 'react'
+import React, {useState, useContext} from 'react'
 import Ingredient from './Ingredient'
-import axios from 'axios'
 import { useHistory } from 'react-router-dom'
-import { Search } from 'semantic-ui-react'
+import { recipesRequest } from '../utils/recipeRequest' 
+import {UserContext} from '../contexts/UserContext'
+
+const URL = "https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/recipes/findByIngredients?number=5&ranking=2&ignorePantry=false&ingredients="
 
 const UserIngredients = ({items}) =>{
     
@@ -16,14 +18,26 @@ const UserIngredients = ({items}) =>{
 
     const [ displayList, setDisplayList ] = useState(items)
 
-    const fetchRecipes = async () => {
+    const [ user, setUser] = useContext(UserContext)
+
+    const fetchRecipes = () => {
         setLoading(true)
         
-        console.log("clicked")
+        const formattedItems = items.join('%252C')
+        // console.log(`${URL}${formattedItems}`)        
+        recipesRequest()
+        .get(`${URL}${formattedItems}`)
+        .then(res => {
+            setUser({...user, recipes: res.data})
+            localStorage.setItem("allRecipes", JSON.stringify(res.data))
+            history.push('/recipes')
+        })
+        .catch(err => {
+            console.log(err)
+        })
 
         setLoading(false)
 
-        history.push('/recipes')
 
     }
 
