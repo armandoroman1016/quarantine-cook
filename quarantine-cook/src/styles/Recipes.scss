@@ -96,7 +96,11 @@
 
     .search-results{
         width: 100%;
-        margin: 1rem 0 0 0;
+        margin: 20px 0 0 0;
+        span{
+            font-weight: bold;
+            color:$alt-dark-green;
+        }
     }
 
     .displayed-recipes{
