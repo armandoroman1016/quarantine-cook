@@ -26,13 +26,13 @@ function App() {
       <UserContext.Provider value = {[user, setUser]}>
           <Nav />
           <Switch>
+            <Route exact path = '/recipes' component = {Recipes}/>
             <Route path = '/kitchen' render = {(props) => (
-                <>
+                <React.Fragment>
                   <UserIngredients {...props}/>
                   <RecipeForm {...props}/>
-                </>
+                </React.Fragment>
               )}/>
-            <Route path = '/recipes' component = {Recipes}/>
           </Switch>
       </UserContext.Provider>
     </div>

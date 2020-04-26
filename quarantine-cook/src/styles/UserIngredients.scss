@@ -1,6 +1,17 @@
 .no-groceries, .ingredients.stock.container{
     margin: 1rem;
-    
+    @include tablet{
+        margin: 1rem 2.4rem;
+    }
+
+    @include small-desktop{
+        position: absolute;
+        margin: 0;
+        padding: 0;
+        width: 50%;
+        top: 20%;
+        
+    }
 
 }
 
@@ -13,9 +24,18 @@
     border-bottom: 1px solid lighten(#1a1a1a, 75%);
     margin-top: 10vh;
 
+    @include small-desktop{
+        margin-top: 0;
+        margin-left: 5rem;
+        padding: 4rem;
+        background: lighten(#eef9bf, 10%);
+        border-radius: 8px;
+        filter: drop-shadow(1px 2px 8px lighten(#1a1a1a, 80%));
+        border-bottom: none;
+    }
+
     h1{
         width: 50%;
-        
         font-family: "Raleway", "Lato", "Manrope", 'Times New Roman', Times, serif;
         height: fit-content;
         align-self: center;
@@ -32,6 +52,9 @@
         font-family: "Raleway", "Lato", "Manrope", 'Times New Roman', Times, serif;
         cursor: pointer;
         transition: background .25s ease-in;
+        @include tablet{
+            width: 25%;
+        }
         &:hover{
 
             background: darken($green, 10%);
@@ -58,6 +81,9 @@
         box-shadow: 0px 0px 12px lighten(#1a1a1a, 87%);
         border-radius: 8px;
         padding: 2rem 0 0 1.2rem;
+        @include tablet{
+            height: 20rem;
+        }
         .search-results-message{
             font-size: 1.2rem;
             padding-bottom: 1rem;
