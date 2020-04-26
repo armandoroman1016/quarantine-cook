@@ -95,7 +95,7 @@ const Recipes = () => {
                 </div>
             </div>
             {searching ?
-                <p className = 'search-results'>Results for "{searchVal}"</p>
+                <p className = 'search-results'>Results for "<span>{searchVal}</span>"</p>
                 : null
             }
             <div className = 'displayed-recipes'>

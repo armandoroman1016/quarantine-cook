@@ -10,18 +10,42 @@
     top: 0;
     z-index: 100000;
     background: #fff;
-    h3{
 
-        font-family: "Manrope", 'Times New Roman', Times, serif;
-        font-size: 1.8rem;
-        font-weight: bold;
-        color: $purple;
+    .logo{
+        height: 75%;
+        width: auto;
+        margin: 10px;
     }
 
-    .icon{
-        width: 22px;
-        height: 22px;
-        filter: drop-shadow(1px 1px 1px lighten(#1a1a1a, 50%));
+    .nav-btn-container{
+        width: 30px;
+        height: 30px;
+        // border: 2px solid red;
+        .icon{
+            padding: 2px;
+            height: 100%;
+            width: 100%;
+            filter: drop-shadow(1px 1px 1px lighten(#1a1a1a, 50%));
+        }
+
+        .close.icon{
+            animation: scale-up .5s;
+        }
+
+        .menu.icon{
+            animation: scale-up .5s;
+        }
+
+        @keyframes scale-up{
+            from{
+                transform: scale(0) rotate(0deg);
+            }
+            
+            to{
+                transform: scale(1) rotate(360deg);
+            }
+        }
+
     }
 
 

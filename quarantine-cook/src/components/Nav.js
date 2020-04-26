@@ -2,6 +2,7 @@ import React, {useState} from 'react'
 import {Link} from 'react-router-dom'
 import Menu from '../assets/menu.svg'
 import Close from '../assets/close.svg'
+import logo from '../assets/logo.jpg'
 import {Icon} from 'semantic-ui-react'
 
 const Nav = () => {
@@ -12,13 +13,23 @@ const Nav = () => {
 
     return(
         <nav className = 'nav'>
-            <h3>Quarantine Cook</h3>       
-            <img 
-            src = {show ? Close : Menu} 
-            alt = 'hamburger menu icon' 
-            className = 'icon'
-            onClick = {() => setShow(!show)}
-            />
+            <img className = 'logo' src = {logo} />   
+            <div className = 'nav-btn-container'>
+                {!show && <img 
+                    src = {Menu} 
+                    alt = 'hamburger menu icon' 
+                    className = {show ? 'close icon' : 'menu icon'}
+                    onClick = {() => setShow(!show)}
+                    />
+                }
+                {show && <img 
+                    src = {Close} 
+                    alt = 'hamburger menu icon' 
+                    className = {show ? 'close icon' : 'menu icon'}
+                    onClick = {() => setShow(!show)}
+                    />
+                }
+            </div>  
             <div className = {show ? 'links' :'links hide'}>
                 <ul>
                     <li>

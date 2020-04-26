@@ -73,7 +73,7 @@ const RecipeForm = () => {
                 {
                     inputItems.length > 0 ? (
                         <>
-                        <h4>Ingredients to be added to your inventory</h4>
+                        <h4>Ingredients to be added to your list</h4>
                         {inputItems && inputItems.map(item => (
                             <p 
                             key = {Math.floor(Math.random() * 100000)}
