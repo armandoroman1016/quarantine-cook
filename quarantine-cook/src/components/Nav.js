@@ -4,8 +4,9 @@ import Menu from '../assets/menu.svg'
 import Close from '../assets/close.svg'
 import logo from '../assets/logo.jpg'
 import {Icon} from 'semantic-ui-react'
-
+import {useHistory} from 'react-router-dom'
 const Nav = () => {
+    const history = useHistory();
 
     const [show, setShow] = useState(false)
 
@@ -13,7 +14,7 @@ const Nav = () => {
 
     return(
         <nav className = 'nav'>
-            <img className = 'logo' src = {logo} />   
+            <img className = 'logo' src = {logo} onClick = {() => history.push('/')}/>   
             <div className = 'nav-btn-container'>
                 {!show && <img 
                     src = {Menu} 

@@ -1,44 +1,76 @@
-.form.container{
+.form.container {
     width: 100%;
     height: 100%;
     margin: 3.2rem 0;
-    
-    form{
+
+    @include small-desktop {
+        height: auto;
+        margin: 0;
+        padding: 0;
+
+        position: absolute;
+        width: 40%;
+        right: 0;
+        top: 20%;
+    }
+
+    form {
         display: flex;
         flex-direction: column;
         justify-content: space-around;
         margin: 0 1rem;
-        label{
+
+        @include tablet {
+            margin: 0 2.4rem;
+        }
+
+        @include small-desktop {
+            // padding: 3rem 5rem 0 0;
+            padding: 4rem;
+            background: lighten($yellow, 10%);
+            border-radius: 8px;
+            filter: drop-shadow(1px 2px 8px lighten(#1a1a1a, 80%));
+        }
+
+        label {
             font-weight: bold;
             margin: 1rem 0;
+            @include small-desktop{
+                margin-top: 0;
+            }
         }
-        input{
+
+        input {
             font-size: 16px;
         }
-        .ui.input>input{
-        
+
+        .ui.input>input {
+
             font-family: "Raleway", "Lato", "Manrope", 'Times New Roman', Times, serif;
         }
-        .input_items_container{
+
+        .input_items_container {
             margin-top: 1.6rem;
             display: flex;
             flex-direction: row;
             flex-wrap: wrap;
             justify-content: space-around;
-            h4{
+
+            h4 {
                 width: 100%;
                 font-size: 1.4rem;
                 font-family: "Raleway", "Lato", "Manrope", 'Times New Roman', Times, serif;
                 margin-bottom: 1rem;
             }
 
-            p{
-                height: fit-content;        
-                font-size: 1.4rem;       
-                padding: .5rem ;
+            p {
+                height: fit-content;
+                font-size: 1.4rem;
+                padding: .5rem;
             }
         }
-        button{
+
+        button {
             margin-top: 2rem;
             height: 40px;
             border: none;
@@ -48,9 +80,14 @@
             font-family: "Raleway", "Lato", "Manrope", 'Times New Roman', Times, serif;
             cursor: pointer;
             transition: background .25s ease-in;
-        box-shadow: 0 0 10px lighten(#1a1a1a, 70%);
+            box-shadow: 0 0 10px lighten(#1a1a1a, 70%);
 
-            &:hover{
+            @include tablet {
+                width: 35%;
+                margin: 2rem 0 0 auto;
+            }
+
+            &:hover {
 
                 background: lighten($purple, 10%);
                 transition: background .25s ease-in;
