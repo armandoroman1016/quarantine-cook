@@ -5,7 +5,7 @@ You can find the deployed project at https://quarantine-cook.com.
 ## Contributors
 
 Armando Roman (https://github.com/armandoroman1016)
-[<img src="https://avatars1.githubusercontent.com/u/19368091?s=400&v=4" width = "200" />](https://avatars1.githubusercontent.com/u/19368091?s=400&v=4) | [<img src="https://avatars3.githubusercontent.com/u/51098659?s=400&v=4" width = "200" />](https://avatars3.githubusercontent.com/u/51098659?s=400&v=4) | [<img src="https://avatars3.githubusercontent.com/u/42873186?s=400&v=4" width = "200" />](https://avatars3.githubusercontent.com/u/42873186?s=400&v=4) |
+[<img src="https://avatars3.githubusercontent.com/u/51098659?s=400&v=4" width = "200" />](https://avatars3.githubusercontent.com/u/51098659?s=400&v=4) | [<img src="https://avatars3.githubusercontent.com/u/42873186?s=400&v=4" width = "200" />](https://avatars3.githubusercontent.com/u/42873186?s=400&v=4) |
 | [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/armandoroman1016)                              |            | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/armando-roman-64a53a188/)        |
 
 <br>
