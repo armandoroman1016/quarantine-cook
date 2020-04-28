@@ -2,18 +2,6 @@
 
 You can find the deployed project at https://quarantine-cook.com.
 
-## Contributors
-
-Armando Roman (https://github.com/armandoroman1016)
-[<img src="https://avatars3.githubusercontent.com/u/51098659?s=400&v=4" width = "200" />](https://avatars3.githubusercontent.com/u/51098659?s=400&v=4)
-<br>
-[<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/armandoroman1016)
-<br>
-[ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/armando-roman-64a53a188/)  
-
-<br>
-<br>
-
 ![MIT](https://img.shields.io/packagist/l/doctrine/orm.svg)
 ![React](https://img.shields.io/badge/react-v16.7.0--alpha.2-blue.svg)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
