@@ -1,6 +1,6 @@
-# Mission Control
+# Quarantine Cook
 
-You can find the deployed project at https://use-mission-control.com.
+You can find the deployed project at https://quarantine-cook.com.
 
 ## Contributors
 
