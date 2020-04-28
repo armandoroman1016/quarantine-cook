@@ -6,7 +6,10 @@ You can find the deployed project at https://quarantine-cook.com.
 
 Armando Roman (https://github.com/armandoroman1016)
 [<img src="https://avatars3.githubusercontent.com/u/51098659?s=400&v=4" width = "200" />](https://avatars3.githubusercontent.com/u/51098659?s=400&v=4)
-| [<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/armandoroman1016)                              |            | [ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/armando-roman-64a53a188/)        |
+<br>
+[<img src="https://github.com/favicon.ico" width="15"> ](https://github.com/armandoroman1016)
+<br>
+[ <img src="https://static.licdn.com/sc/h/al2o9zrvru7aqj8e1x2rzsrca" width="15"> ](https://www.linkedin.com/in/armando-roman-64a53a188/)  
 
 <br>
 <br>
