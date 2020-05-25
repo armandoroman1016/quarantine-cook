@@ -1,0 +1,99 @@
+.landing{
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-top: 10vh;
+    .section{
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 2rem 0;
+        border-bottom: 1px solid darken(#fff, 5%);
+        img{
+            padding: 2rem 0 0 0;
+            width: 7%;
+            height: auto;
+            align-self: center;
+        }
+    }
+
+    .section p{
+        padding: 2rem;
+        text-align: center;
+    }
+    .section.header{
+        height: 95vh;
+        background: linear-gradient(
+        0deg,
+        rgba($purple, .4) 0%,
+        rgba($purple, .4) 80%),
+        url('../assets/cooking.jpg') no-repeat top center fixed;
+        background-size: cover;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+
+        h2{
+            font-size: 3rem;
+            font-weight: bold;
+            color:#fff;
+            text-shadow: 1px 1px 4px #1a1a1a;
+            width: 80%;
+            margin: 0 auto;
+        }
+
+        p{
+            font-size: 1.8rem;
+            width: 80%;
+            margin: 0 auto;
+            font-weight: bold;
+            text-shadow: 1px 1px 4px #1a1a1a;
+            color:#fff;
+            text-align: left;
+
+        }
+
+        button{
+            width: 80%;
+            margin: 0 auto;
+            height: 40px;
+            font-weight: bold;
+            border-radius: 6px;
+            background: rgba($red, 1);
+            color: #fff;
+        }
+    }
+
+    .section.final{
+        width: 90%;
+        margin: 0 auto;
+        h4{
+            font-size: 1.6rem;
+
+        }
+
+        button{
+            width: 100%;
+            margin: 20px auto 0 auto;
+            height: 40px;
+            font-weight: bold;
+            border-radius: 6px;
+            background: rgba($purple, 1);
+            color: #fff;
+        }
+        p{
+            font-size: 1rem;
+            span{
+                font-weight: bold;
+                color: $purple;
+                
+            }
+        }
+    }
+}

@@ -8,6 +8,8 @@ import Nav from './components/Nav'
 import RecipeForm from './components/RecipeForm'
 import UserIngredients from './components/UserIngredients'
 import Recipes from './components/Recipes'
+import Landing from './components/Landing'
+import Footer from './components/Footer'
 
 import {UserContext} from './contexts/UserContext'
 import { Route, Switch } from 'react-router'
@@ -26,7 +28,8 @@ function App() {
       <UserContext.Provider value = {[user, setUser]}>
           <Nav />
           <Switch>
-            <Route exact path = '/recipes' component = {Recipes}/>
+            <Route exact path = '/' component ={Landing} />
+            <Route path = '/recipes' component = {Recipes}/>
             <Route path = '/kitchen' render = {(props) => (
                 <React.Fragment>
                   <UserIngredients {...props}/>
@@ -34,6 +37,7 @@ function App() {
                 </React.Fragment>
               )}/>
           </Switch>
+          <Footer/>
       </UserContext.Provider>
     </div>
   );
